@@ -5,98 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Gallery</title>
     <style>
-        /* --- CSS STYLES --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212; /* Dark Mode Background */
+            font-family: sans-serif;
+            background-color: #121212;
             color: white;
             margin: 0;
             padding: 20px;
             text-align: center;
         }
-
-        h1 {
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            color: #f0f0f0;
-        }
-
-        /* Responsive Grid */
+        h1 { margin-bottom: 20px; }
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding-bottom: 60px;
+            padding-bottom: 50px;
         }
-
-        /* Card Style */
         .card {
-            background-color: #2c2c2c;
-            border-radius: 12px;
+            background-color: #333;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            transition: transform 0.2s;
         }
-
-        .card:active {
-            transform: scale(0.98); /* Click effect */
-        }
-
-        /* Image Style */
         .card img {
             width: 100%;
-            height: 160px;
+            height: 150px;
             object-fit: cover;
             display: block;
-            border-bottom: 1px solid #444;
         }
-
-        /* Button Style */
         .download-btn {
             display: block;
-            background-color: #2563eb; /* Nice Blue */
+            background-color: #007bff;
             color: white;
             text-decoration: none;
-            padding: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        
-        .download-btn:active {
-            background-color: #1d4ed8;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
 
-    <h1>⬇️ Download Gallery</h1>
+    <h1>📸 My Gallery</h1>
 
-    <div class="gallery" id="gallery-container"></div>
+    <div class="gallery">
 
-    <script>
-        const galleryContainer = document.getElementById('gallery-container');
-        
-        // Settings: Change this number if you add more photos later!
-        const totalImages = 15; 
+        <div class="card">
+            <img src="img1.jpg" alt="Image 1">
+            <a href="img1.jpg" class="download-btn" download>Download</a>
+        </div>
 
-        for (let i = 1; i <= totalImages; i++) {
-            // Create the HTML for each card
-            const htmlCode = `
-                <div class="card">
-                    <img src="img${i}.jpg" alt="Image ${i}" loading="lazy">
-                    <a href="img${i}.jpg" class="download-btn" download>
-                        Download #${i}
-                    </a>
-                </div>
-            `;
-            
-            // Add it to the page
-            galleryContainer.innerHTML += htmlCode;
-        }
-    </script>
+        <div class="card">
+            <img src="img2.jpg" alt="Image 2">
+            <a href="img2.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img3.jpg" alt="Image 3">
+            <a href="img3.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img4.jpg" alt="Image 4">
+            <a href="img4.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img5.jpg" alt="Image 5">
+            <a href="img5.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img6.jpg" alt="Image 6">
+            <a href="img6.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img7.jpg" alt="Image 7">
+            <a href="img7.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img8.jpg" alt="Image 8">
+            <a href="img8.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img9.jpg" alt="Image 9">
+            <a href="img9.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img10.jpg" alt="Image 10">
+            <a href="img10.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img11.jpg" alt="Image 11">
+            <a href="img11.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img12.jpg" alt="Image 12">
+            <a href="img12.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img13.jpg" alt="Image 13">
+            <a href="img13.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img14.jpg" alt="Image 14">
+            <a href="img14.jpg" class="download-btn" download>Download</a>
+        </div>
+
+        <div class="card">
+            <img src="img15.jpg" alt="Image 15">
+            <a href="img15.jpg" class="download-btn" download>Download</a>
+        </div>
+
+    </div>
 
 </body>
 </html>
