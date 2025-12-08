@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        /* --- CSS STYLES --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Dark Mode Background */
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #f0f0f0;
+        }
+
+        /* Responsive Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        /* Card Style */
+        .card {
+            background-color: #2c2c2c;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.98); /* Click effect */
+        }
+
+        /* Image Style */
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #444;
+        }
+
+        /* Button Style */
+        .download-btn {
+            display: block;
+            background-color: #2563eb; /* Nice Blue */
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .download-btn:active {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>⬇️ Download Gallery</h1>
+
+    <div class="gallery" id="gallery-container"></div>
+
+    <script>
+        const galleryContainer = document.getElementById('gallery-container');
+        
+        // Settings: Change this number if you add more photos later!
+        const totalImages = 15; 
+
+        for (let i = 1; i <= totalImages; i++) {
+            // Create the HTML for each card
+            const htmlCode = `
+                <div class="card">
+                    <img src="img${i}.jpg" alt="Image ${i}" loading="lazy">
+                    <a href="img${i}.jpg" class="download-btn" download>
+                        Download #${i}
+                    </a>
+                </div>
+            `;
+            
+            // Add it to the page
+            galleryContainer.innerHTML += htmlCode;
+        }
+    </script>
+
+</body>
+</html>
