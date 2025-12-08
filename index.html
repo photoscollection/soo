@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery</title>
+    <title>My Gallery</title>
     <style>
+        /* --- BASIC STYLES --- */
         body {
             font-family: sans-serif;
             background-color: #121212;
@@ -13,115 +14,195 @@
             padding: 20px;
             text-align: center;
         }
+
         h1 { margin-bottom: 20px; }
+
+        /* --- GALLERY GRID --- */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
             padding-bottom: 50px;
         }
+
         .card {
             background-color: #333;
             border-radius: 10px;
             overflow: hidden;
+            position: relative;
         }
+
+        /* Image styling - Added 'cursor: pointer' to show it's clickable */
         .card img {
             width: 100%;
             height: 150px;
             object-fit: cover;
             display: block;
+            cursor: pointer; 
+            transition: opacity 0.2s;
         }
+
+        .card img:active {
+            opacity: 0.7; /* distinct effect when tapped */
+        }
+
+        /* Download Button */
         .download-btn {
             display: block;
             background-color: #007bff;
             color: white;
             text-decoration: none;
-            padding: 10px;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        /* --- FULL SCREEN PREVIEW (LIGHTBOX) STYLES --- */
+        #lightbox {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95); /* Black background */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        #close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        /* Text instructions inside full screen */
+        #lightbox span {
+            margin-top: 10px;
+            color: #ccc;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <h1>📸 My Gallery</h1>
+    <h1>📸 Tap Photo to View</h1>
 
     <div class="gallery">
 
         <div class="card">
-            <img src="img1.jpg" alt="Image 1">
+            <img src="img1.jpg" alt="Image 1" onclick="openFull(this)">
             <a href="img1.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img2.jpg" alt="Image 2">
+            <img src="img2.jpg" alt="Image 2" onclick="openFull(this)">
             <a href="img2.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img3.jpg" alt="Image 3">
+            <img src="img3.jpg" alt="Image 3" onclick="openFull(this)">
             <a href="img3.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img4.jpg" alt="Image 4">
+            <img src="img4.jpg" alt="Image 4" onclick="openFull(this)">
             <a href="img4.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img5.jpg" alt="Image 5">
+            <img src="img5.jpg" alt="Image 5" onclick="openFull(this)">
             <a href="img5.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img6.jpg" alt="Image 6">
+            <img src="img6.jpg" alt="Image 6" onclick="openFull(this)">
             <a href="img6.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img7.jpg" alt="Image 7">
+            <img src="img7.jpg" alt="Image 7" onclick="openFull(this)">
             <a href="img7.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img8.jpg" alt="Image 8">
+            <img src="img8.jpg" alt="Image 8" onclick="openFull(this)">
             <a href="img8.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img9.jpg" alt="Image 9">
+            <img src="img9.jpg" alt="Image 9" onclick="openFull(this)">
             <a href="img9.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img10.jpg" alt="Image 10">
+            <img src="img10.jpg" alt="Image 10" onclick="openFull(this)">
             <a href="img10.jpg" class="download-btn" download>Download</a>
         </div>
-
+        
         <div class="card">
-            <img src="img11.jpg" alt="Image 11">
+            <img src="img11.jpg" alt="Image 11" onclick="openFull(this)">
             <a href="img11.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img12.jpg" alt="Image 12">
+            <img src="img12.jpg" alt="Image 12" onclick="openFull(this)">
             <a href="img12.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img13.jpg" alt="Image 13">
+            <img src="img13.jpg" alt="Image 13" onclick="openFull(this)">
             <a href="img13.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img14.jpg" alt="Image 14">
+            <img src="img14.jpg" alt="Image 14" onclick="openFull(this)">
             <a href="img14.jpg" class="download-btn" download>Download</a>
         </div>
 
         <div class="card">
-            <img src="img15.jpg" alt="Image 15">
+            <img src="img15.jpg" alt="Image 15" onclick="openFull(this)">
             <a href="img15.jpg" class="download-btn" download>Download</a>
         </div>
 
     </div>
+
+    <div id="lightbox" onclick="closeFull()">
+        <div id="close-btn">&times;</div>
+        <img id="lightbox-img" src="">
+        <span>Tap anywhere to close</span>
+    </div>
+
+    <script>
+        // Function to open the Full Screen View
+        function openFull(element) {
+            var lightbox = document.getElementById("lightbox");
+            var fullImg = document.getElementById("lightbox-img");
+            
+            // Set the full screen image to match the clicked image
+            fullImg.src = element.src;
+            
+            // Show the viewer
+            lightbox.style.display = "flex";
+        }
+
+        // Function to close the Full Screen View
+        function closeFull() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
